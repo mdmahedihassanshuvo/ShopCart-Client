@@ -16,7 +16,7 @@ const Banner = () => {
             interval={3000}
             >
                 <div>
-                    <img className='opacity-75' src={banner2} />
+                    <img className='opacity-75 rounded' src={banner2} />
                     <div className='absolute top-1/3 left-52 space-y-4'>
                         <h1 className='text-[#003d2a] text-5xl font-semibold'>Grab Upto 50% Off On <br /> Selected Headphone</h1>
                         <div className='text-left'>
@@ -25,7 +25,7 @@ const Banner = () => {
                     </div>
                 </div>
                 <div>
-                    <img className='opacity-75' src={banner3} />
+                    <img className='opacity-75 rounded' src={banner3} />
                     <div className='absolute top-1/3 left-52 space-y-4'>
                         <h1 className='text-[#003d2a] text-5xl font-semibold'>Grab Upto 50% Off On <br /> Selected Headphone</h1>
                         <div className='text-left'>
