@@ -10,7 +10,7 @@ const Header = () => {
                 to="/"
                 className={({ isActive }) =>
                     isActive
-                        ? "text-accent hover:text-orange-600 border-b-2 shadow-lg"
+                        ? "text-accent hover:text-[#003c2a] border-b-2 shadow-lg"
                         : ""
                 }
             >
@@ -18,7 +18,7 @@ const Header = () => {
             </NavLink>
             <button
                 // to='/category'
-                className="hover:text-orange-600 border-b-2 shadow-lg"
+                className="hover:text-[#003c2a] border-b-2 shadow-lg"
             >
                 <div className="dropdown">
                     <label tabIndex={0} className="text-lg font-medium">Categories</label>
@@ -33,7 +33,7 @@ const Header = () => {
                 className={({ isActive }) =>
                     isActive
                         ? "text-accent "
-                        : "hover:text-orange-600 border-b-2 shadow-lg"
+                        : "hover:text-[#003c2a] border-b-2 shadow-lg"
                 }
             >
                 <p className='text-lg font-medium'>What's New</p>
@@ -43,7 +43,7 @@ const Header = () => {
                 className={({ isActive }) =>
                     isActive
                         ? "text-accent "
-                        : "hover:text-orange-600 border-b-2 shadow-lg"
+                        : "hover:text-[#003c2a] border-b-2 shadow-lg"
                 }
             >
                 <p className='text-lg font-medium'>Delivery</p>
@@ -76,7 +76,7 @@ const Header = () => {
                     <span className="indicator-item badge badge-secondary">99+</span>
                     <Link className="btn btn-ghost"><FaShoppingCart className='text-2xl' /></Link>
                 </div>
-                <Link to='/login'><p className='text-lg border-b-2 p-2 shadow-lg rounded hover:text-orange-600 font-medium text-black'>Login</p></Link>
+                <Link to='/login'><p className='text-lg border-b-2 p-2 shadow-lg rounded hover:text-[#003c2a] font-medium text-black'>Login</p></Link>
             </div>
         </div>
     );
