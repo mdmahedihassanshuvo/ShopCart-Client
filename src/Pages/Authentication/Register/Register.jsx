@@ -1,27 +1,54 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from "react-hook-form"
 import Lottie from "lottie-react";
 import { Helmet } from 'react-helmet-async';
 import groovyWalkAnimation from "../../../assets/login.json";
 import { Link } from 'react-router-dom';
 import google from '.././../../assets/images/google.png'
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Register = () => {
+
+    const { createUser, updateUserProfile } = useContext(AuthContext);
 
     const {
         register,
         handleSubmit,
-        watch,
+        reset,
         formState: { errors },
     } = useForm()
 
     const onSubmit = (data) => {
         console.log(data)
-
+        createUser(data.email, data.password)
+            .then(result => {
+                const loggedUser = result.user
+                console.log(loggedUser)
+                updateUserProfile(data.name, data.photo)
+                    .then(() => {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Sign Up Successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        reset();
+                    })
+                    .catch(err => console.error(err));
+            })
+            .catch(err => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: `${err.message}`
+                })
+            });
 
     }
 
-    console.log(watch("example")) // watch input value by passing the name of it
+    // console.log(watch("example")) // watch input value by passing the name of it
 
     return (
         <div>
@@ -64,9 +91,12 @@ const Register = () => {
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Photo</span>
+                                        <span className="label-text">Photo URL</span>
                                     </label>
-                                    <input type="text" placeholder="photo url" className="input input-bordered" />
+                                    <input type="text" placeholder="photo url" {...register("photo", { required: true })} className="input input-bordered" />
+                                    {errors.photo?.type === "required" && (
+                                        <p className='text-red-600 text-sm' role="alert">Photo is required</p>
+                                    )}
                                 </div>
                                 <div className="form-control mt-6 space-y-3">
                                     <button className="btn btn-primary">Sign Up</button>
