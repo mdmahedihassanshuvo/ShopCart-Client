@@ -49,7 +49,7 @@ const Headphone = () => {
 
     return (
         <div className='lg:my-10'>
-            <h1 className='text-3xl font-semibold lg:mb-16'>Headphones for you !</h1>
+            <h1 className='text-3xl text-[#003c2a] font-semibold lg:mb-16'>Headphones for you !</h1>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
                 {
                     displayHeadphones.map((headphone) => (
