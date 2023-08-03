@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
@@ -20,11 +20,32 @@ const Headphone = () => {
     })
     console.log(displayHeadphones)
 
-    const handleAddCart = () => {
-        if(!user){
+    const handleAddCart = async (headphone) => {
+        if (!user) {
             navigate('/login');
+            return;
         }
-    }
+
+        const { details, _id, price, name, ratings, image } = headphone;
+        const cartItem = {
+            email: user?.email,
+            details,
+            _id,
+            price,
+            name,
+            ratings,
+            image,
+        };
+
+        try {
+            const response = await axios.post('http://localhost:5000/addCart', cartItem);
+            console.log(response.data);
+            // You can add a success notification here if needed
+        } catch (error) {
+            console.error('Error adding to cart:', error);
+        }
+    };
+
 
     return (
         <div className='lg:my-10'>
@@ -41,7 +62,7 @@ const Headphone = () => {
                                 </div>
                                 <p>{headphone.details}</p>
                                 <div className="card-actions justify-start">
-                                    <button onClick={handleAddCart} className="btn bg-white border border-black hover:bg-[#003c2a] hover:text-white transition-colors">Add to Cart</button>
+                                    <button onClick={() => handleAddCart(headphone)} className="btn bg-white border border-black hover:bg-[#003c2a] hover:text-white transition-colors">Add to Cart</button>
                                 </div>
                             </div>
                         </div>
