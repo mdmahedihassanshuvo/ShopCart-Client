@@ -8,6 +8,7 @@ import Wireless from "../../Pages/Categories/wireless";
 import New from "../../Pages/WhatsNew/New";
 import Login from "../../Pages/Authentication/Login/Login";
 import Register from "../../Pages/Authentication/Register/Register";
+import Cart from "../../Pages/Cart/Cart";
 
 const router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register/>
+            },
+            {
+                path: '/cart',
+                element: <Cart/>
             }
         ]
     },
