@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import Lottie from "lottie-react";
 import { useForm } from "react-hook-form"
 import groovyWalkAnimation from "../../../assets/login.json";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import google from '.././../../assets/images/google.png'
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
@@ -11,6 +11,11 @@ import Swal from 'sweetalert2';
 const Login = () => {
 
     const { signUpUser, signUpWithGoogle } = useContext(AuthContext)
+
+    const location = useLocation();
+    console.log(location);
+    const navigate = useNavigate();
+    const from = location?.state?.from?.pathname || '/';
 
     const {
         register,
@@ -32,6 +37,7 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
+                navigate(from, { replace: true });
                 reset();
             })
             .catch(err => {
@@ -55,6 +61,7 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
+                navigate(from, { replace: true });
             })
             .catch(err => {
                 Swal.fire({
@@ -68,9 +75,9 @@ const Login = () => {
     // console.log(watch("example")) // watch input value by passing the name of it
 
     return (
-        <div>
+        <div className='rounded'>
             <Helmet><title>ShopCart-Login</title></Helmet>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen bg-base-200 rounded">
                 <div className='flex justify-between items-center gap-5'>
                     <Lottie animationData={groovyWalkAnimation} loop={true} />
                     <div className="hero-content flex-col ">

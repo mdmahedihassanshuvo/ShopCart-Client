@@ -53,7 +53,7 @@ const Register = () => {
     return (
         <div>
             <Helmet><title>ShopCart-Sign Up</title></Helmet>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen bg-base-200 rounded">
                 <div className='flex justify-between items-center gap-5'>
                     <Lottie animationData={groovyWalkAnimation} loop={true} />
                     <div className="hero-content flex-col ">

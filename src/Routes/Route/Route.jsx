@@ -9,39 +9,40 @@ import New from "../../Pages/WhatsNew/New";
 import Login from "../../Pages/Authentication/Login/Login";
 import Register from "../../Pages/Authentication/Register/Register";
 import Cart from "../../Pages/Cart/Cart";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Main/>,
+        element: <Main />,
         children: [
             {
                 path: '/',
-                element: <Home/>
+                element: <Home />
             },
             {
                 path: '/wired',
-                element: <Wired/>
+                element: <Wired />
             },
             {
                 path: '/wireless',
-                element: <Wireless/>
+                element: <Wireless />
             },
             {
                 path: '/new',
-                element: <New/>
+                element: <New />
             },
             {
                 path: '/login',
-                element: <Login/>
+                element: <Login />
             },
             {
                 path: '/register',
-                element: <Register/>
+                element: <Register />
             },
             {
                 path: '/cart',
-                element: <Cart/>
+                element: <PrivateRoute><Cart /></PrivateRoute>
             }
         ]
     },

@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Headphone = () => {
 
-    const { loading } = useContext(AuthContext);
+    const { loading, user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const { data: displayHeadphones = [], refetch } = useQuery({
         queryKey: ['displayHeadphones'],
@@ -17,6 +19,12 @@ const Headphone = () => {
         }
     })
     console.log(displayHeadphones)
+
+    const handleAddCart = () => {
+        if(!user){
+            navigate('/login');
+        }
+    }
 
     return (
         <div className='lg:my-10'>
@@ -33,7 +41,7 @@ const Headphone = () => {
                                 </div>
                                 <p>{headphone.details}</p>
                                 <div className="card-actions justify-start">
-                                    <button className="btn bg-white border border-black hover:bg-[#003c2a] hover:text-white transition-colors">Add to Cart</button>
+                                    <button onClick={handleAddCart} className="btn bg-white border border-black hover:bg-[#003c2a] hover:text-white transition-colors">Add to Cart</button>
                                 </div>
                             </div>
                         </div>
