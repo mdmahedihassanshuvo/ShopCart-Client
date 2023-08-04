@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Rating from 'react-rating';
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const Wireless = () => {
 
@@ -50,6 +51,13 @@ const Wireless = () => {
         try {
             const response = await axios.post('http://localhost:5000/addCart', cartItem);
             console.log(response.data);
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: `${name} Add to Cart successfully`,
+                showConfirmButton: false,
+                timer: 1500
+            })
             // You can add a success notification here if needed
         } catch (error) {
             console.error('Error adding to cart:', error);

@@ -11,6 +11,7 @@ import Register from "../../Pages/Authentication/Register/Register";
 import Cart from "../../Pages/Cart/Cart";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ProductDetails from "../../Pages/ProductDetails/ProductDetails";
+import Payment from "../../Pages/Payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <ProductDetails/>
+            },
+            {
+                path: '/payment/:id',
+                element: <Payment/>
             }
         ]
     },

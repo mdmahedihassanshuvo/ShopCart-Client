@@ -3,7 +3,7 @@ import axios from 'axios';
 import React from 'react';
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 import Rating from 'react-rating';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const ProductDetails = () => {
 
@@ -19,7 +19,7 @@ const ProductDetails = () => {
         }
     })
 
-    const { details, image, name, price, ratings } = product;
+    const { details, image, name, price, ratings,_id } = product;
     console.log(product);
 
     return (
@@ -42,7 +42,7 @@ const ProductDetails = () => {
                             <p className='text-lg font-medium'>price: ${price}</p>
                         </div>
                         <div>
-                            <button className="btn bg-[#003c2a] text-white hover:text-black hover:border hover:border-black">Buy now</button>
+                            <Link to={`/payment/${_id}`}><button className="btn bg-[#003c2a] text-white hover:text-black hover:border hover:border-black">Buy now</button></Link>
                         </div>
                     </div>
                 </div>

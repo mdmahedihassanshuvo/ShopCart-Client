@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Rating from 'react-rating';
 import { FaStar, FaStarHalf, FaStarHalfAlt } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const Headphone = () => {
 
@@ -42,6 +43,13 @@ const Headphone = () => {
         try {
             const response = await axios.post('http://localhost:5000/addCart', cartItem);
             console.log(response.data);
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: `${name} Add to Cart successfully`,
+                showConfirmButton: false,
+                timer: 1500
+            })
             // You can add a success notification here if needed
         } catch (error) {
             console.error('Error adding to cart:', error);
@@ -64,9 +72,9 @@ const Headphone = () => {
                                     <p className="text-sm font-medium">{headphone.ratings}
                                         <Rating
                                             placeholderRating={headphone.ratings}
-                                            emptySymbol={<FaStarHalfAlt className='text-red-600'/>}
-                                            placeholderSymbol={<FaStar className='text-red-600'/>}
-                                            fullSymbol={<FaStar className='text-red-600'/>}
+                                            emptySymbol={<FaStarHalfAlt className='text-red-600' />}
+                                            placeholderSymbol={<FaStar className='text-red-600' />}
+                                            fullSymbol={<FaStar className='text-red-600' />}
                                         />
                                     </p>
                                 </div>
