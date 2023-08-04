@@ -3,10 +3,12 @@ import { Link, NavLink, Navigate, useNavigate } from 'react-router-dom';
 import { FaShoppingCart } from "react-icons/fa";
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import useCart from '../../Hook/useCart';
 
 const Header = () => {
 
     const { user, logOutUser } = useContext(AuthContext);
+    const [products] = useCart();
     const navigate = useNavigate()
 
     const handleLogout = () => {
@@ -94,7 +96,7 @@ const Header = () => {
             </div>
             <div className="navbar-end space-x-3">
                 <div className="indicator">
-                    <span className="indicator-item badge badge-secondary">99+</span>
+                    <span className="indicator-item badge badge-secondary">{products.length}</span>
                     <Link to='/cart' className="btn btn-ghost"><FaShoppingCart className='text-2xl' /></Link>
                 </div>
                 {

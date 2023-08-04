@@ -3,26 +3,38 @@ import axios from 'axios';
 import React, { useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import useCart from '../../Hook/useCart';
 
 const Cart = () => {
 
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const { data: products = [], refetch } = useQuery({
-        queryKey: ['products', user?.email],
-        queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/addCart?email=${user?.email}`)
-            console.log(res.data);
-            return res.data;
-        }
-    })
+    const [products, refetch] = useCart();
+
+    // const { data: products = [], refetch } = useQuery({
+    //     queryKey: ['products', user?.email],
+    //     queryFn: async () => {
+    //         const res = await axios.get(`http://localhost:5000/addCart?email=${user?.email}`)
+    //         console.log(res.data);
+    //         return res.data;
+    //     }
+    // })
 
     console.log(products);
 
     const handleDetails = (productId) => {
         console.log(productId);
         navigate(`/details/${productId}`)
+    }
+
+    const handleDelete = (id) => {
+        axios.delete(`http://localhost:5000/addCart/${id}`)
+            .then(res => {
+                console.log(res.data)
+                refetch();
+            })
+            .catch(err => console.log(err));
     }
 
     return (
@@ -80,7 +92,7 @@ const Cart = () => {
                                         <button onClick={() => handleDetails(product._id)} className="btn bg-[#003c2a] text-white hover:text-black hover:border hover:border-black btn-sm">details</button>
                                     </th>
                                     <th>
-                                        <button className="btn bg-[#003c2a] text-white hover:text-black hover:border hover:border-black btn-sm">Delete</button>
+                                        <button onClick={() => handleDelete(product._id)} className="btn bg-[#003c2a] text-white hover:text-black hover:border hover:border-black btn-sm">Delete</button>
                                     </th>
                                 </tr>
                             ))
