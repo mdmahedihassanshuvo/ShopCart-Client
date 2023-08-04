@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import Rating from 'react-rating';
+import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 
 const Wired = () => {
 
@@ -69,10 +71,18 @@ const Wired = () => {
                                     <div className=''>
                                         <h2 className="card-title">${headphone.name}</h2>
                                         <p className="text-lg font-medium">price: ${headphone.price}</p>
+                                        <p className="text-sm font-medium">{headphone.ratings}
+                                            <Rating
+                                                placeholderRating={headphone.ratings}
+                                                emptySymbol={<FaStarHalfAlt className='text-red-600' />}
+                                                placeholderSymbol={<FaStar className='text-red-600' />}
+                                                fullSymbol={<FaStar className='text-red-600' />}
+                                            />
+                                        </p>
                                     </div>
                                     <p>{headphone.details}</p>
                                     <div className="card-actions justify-start">
-                                        <button onClick={()=> handleAddCart(headphone)} className="btn bg-white border border-black hover:bg-[#003c2a] hover:text-white transition-colors">Add to Cart</button>
+                                        <button onClick={() => handleAddCart(headphone)} className="btn bg-white border border-black hover:bg-[#003c2a] hover:text-white transition-colors">Add to Cart</button>
                                     </div>
                                 </div>
                             </div>
@@ -84,10 +94,18 @@ const Wired = () => {
                                     <div className=''>
                                         <h2 className="card-title">${headphone.name}</h2>
                                         <p className="text-lg font-medium">price: ${headphone.price}</p>
+                                        <p className="text-sm font-medium">{headphone.ratings}
+                                            <Rating
+                                                placeholderRating={headphone.ratings}
+                                                emptySymbol={<FaStarHalfAlt className='text-red-600' />}
+                                                placeholderSymbol={<FaStar className='text-red-600' />}
+                                                fullSymbol={<FaStar className='text-red-600' />}
+                                            />
+                                        </p>
                                     </div>
                                     <p>{headphone.details}</p>
                                     <div className="card-actions justify-start">
-                                        <button onClick={()=> handleAddCart(headphone)} className="btn bg-white border border-black hover:bg-[#003c2a] hover:text-white transition-colors">Add to Cart</button>
+                                        <button onClick={() => handleAddCart(headphone)} className="btn bg-white border border-black hover:bg-[#003c2a] hover:text-white transition-colors">Add to Cart</button>
                                     </div>
                                 </div>
                             </div>

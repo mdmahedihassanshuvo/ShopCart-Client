@@ -4,6 +4,8 @@ import React, { useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import useCart from '../../Hook/useCart';
+import Rating from 'react-rating';
+import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 
 const Cart = () => {
 
@@ -86,7 +88,14 @@ const Cart = () => {
                                     </td>
                                     <td className='font-medium'>${product.price}</td>
                                     <th>
-                                        <p className="">{product.ratings}</p>
+                                        <p className="text-sm font-medium">{product.ratings}
+                                            <Rating
+                                                placeholderRating={product.ratings}
+                                                emptySymbol={<FaStarHalfAlt className='text-red-600' />}
+                                                placeholderSymbol={<FaStar className='text-red-600' />}
+                                                fullSymbol={<FaStar className='text-red-600' />}
+                                            />
+                                        </p>
                                     </th>
                                     <th>
                                         <button onClick={() => handleDetails(product._id)} className="btn bg-[#003c2a] text-white hover:text-black hover:border hover:border-black btn-sm">details</button>

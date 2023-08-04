@@ -1,6 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React from 'react';
+import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
+import Rating from 'react-rating';
 import { useParams } from 'react-router-dom';
 
 const ProductDetails = () => {
@@ -29,7 +31,14 @@ const ProductDetails = () => {
                         <div className='space-y-4'>
                             <h1 className="text-5xl  font-bold">{name}</h1>
                             <p className="">{details}</p>
-                            <p>{ratings}</p>
+                            <p className="text-sm font-medium">{ratings}
+                                        <Rating
+                                            placeholderRating={ratings}
+                                            emptySymbol={<FaStarHalfAlt className='text-red-600'/>}
+                                            placeholderSymbol={<FaStar className='text-red-600'/>}
+                                            fullSymbol={<FaStar className='text-red-600'/>}
+                                        />
+                                    </p>
                             <p className='text-lg font-medium'>price: ${price}</p>
                         </div>
                         <div>
