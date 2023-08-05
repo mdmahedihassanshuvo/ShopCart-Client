@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import 'aos/dist/aos.css'; // Import the AOS CSS file
+import AOS from 'aos';
 
 const Footer = () => {
+
+    useEffect(() => {
+        AOS.init();
+    }, []);
+
     return (
-        <footer className="footer grid grid-cols-2 lg:grid-cols-none p-10 bg-stone-800 text-slate-300">
+        <footer className="footer grid grid-cols-2 lg:grid-cols-none p-10 bg-stone-800 text-slate-300" data-aos="flip-up">
             <div>
                 <span className="footer-title">Services</span>
                 <Link className="link link-hover">Branding</Link>

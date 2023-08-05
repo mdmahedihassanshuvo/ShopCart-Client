@@ -6,8 +6,14 @@ import { useNavigate } from 'react-router-dom';
 import Rating from 'react-rating';
 import { FaStar, FaStarHalf, FaStarHalfAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import 'aos/dist/aos.css'; // Import the AOS CSS file
+import AOS from 'aos';
 
 const Headphone = () => {
+
+    useEffect(() => {
+        AOS.init();
+    }, []);
 
     const { loading, user } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -58,7 +64,7 @@ const Headphone = () => {
 
 
     return (
-        <div className='lg:my-10'>
+        <div className='lg:my-10' data-aos="fade-down-left">
             <h1 className='text-3xl text-[#003c2a] font-semibold lg:mb-16'>Headphones for you !</h1>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
                 {
