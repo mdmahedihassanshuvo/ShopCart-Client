@@ -12,6 +12,7 @@ import Cart from "../../Pages/Cart/Cart";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ProductDetails from "../../Pages/ProductDetails/ProductDetails";
 import Payment from "../../Pages/Payment/Payment";
+import NewProduct from "../../Shared/Components/NewProduct";
 
 const router = createBrowserRouter([
     {
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/new',
-                element: <New />
+                element: <NewProduct/>
             },
             {
                 path: '/login',

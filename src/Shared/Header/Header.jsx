@@ -61,16 +61,6 @@ const Header = () => {
             >
                 <p className='text-lg font-medium'>What's New</p>
             </NavLink>
-            <NavLink
-                to="/delivery"
-                className={({ isActive }) =>
-                    isActive
-                        ? "text-accent "
-                        : "hover:text-[#003c2a] border-b-2 shadow-lg"
-                }
-            >
-                <p className='text-lg font-medium'>Delivery</p>
-            </NavLink>
         </>
     );
 

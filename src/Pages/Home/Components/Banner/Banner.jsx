@@ -11,14 +11,14 @@ const Banner = () => {
     return (
         <div className='lg:mb-10'>
             <Carousel
-            autoPlay={true}
-            infiniteLoop={true}
-            interval={3000}
+                autoPlay={true}
+                infiniteLoop={true}
+                interval={3000}
             >
                 <div>
                     <img className='opacity-75 rounded' src={banner2} />
-                    <div className='absolute top-1/3 left-52 space-y-4'>
-                        <h1 className='text-[#003d2a] text-5xl font-semibold'>Grab Upto 50% Off On <br /> Selected Headphone</h1>
+                    <div className='absolute top-1/3 lg:left-52 left-14 space-y-4'>
+                        <h1 className='text-[#003d2a] lg:text-5xl lg:font-semibold'>Grab Upto 50% Off On <br /> Selected Headphone</h1>
                         <div className='text-left'>
                             <button className='btn bg-[#003d2a] border-0 text-white hover:bg-accent text-left'>Buy Now</button>
                         </div>
@@ -26,8 +26,8 @@ const Banner = () => {
                 </div>
                 <div>
                     <img className='opacity-75 rounded' src={banner3} />
-                    <div className='absolute top-1/3 left-52 space-y-4'>
-                        <h1 className='text-[#003d2a] text-5xl font-semibold'>Grab Upto 50% Off On <br /> Selected Headphone</h1>
+                    <div className='absolute top-1/3 lg:left-52 left-14 space-y-4'>
+                        <h1 className='text-[#003d2a] lg:text-5xl lg:font-semibold'>Grab Upto 50% Off On <br /> Selected Headphone</h1>
                         <div className='text-left'>
                             <button className='btn bg-[#003d2a] border-0 text-white hover:bg-accent text-left'>Buy Now</button>
                         </div>
