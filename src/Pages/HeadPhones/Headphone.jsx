@@ -22,7 +22,7 @@ const Headphone = () => {
         queryKey: ['displayHeadphones'],
         // enabled: !loading,
         queryFn: async () => {
-            const res = await axios.get('http://localhost:5000/display')
+            const res = await axios.get('https://shopcart-server-three.vercel.app/display')
             console.log(res.data)
             return res.data
         }
@@ -47,7 +47,7 @@ const Headphone = () => {
         };
 
         try {
-            const response = await axios.post('http://localhost:5000/addCart', cartItem);
+            const response = await axios.post('https://shopcart-server-three.vercel.app/addCart', cartItem);
             console.log(response.data);
             Swal.fire({
                 position: 'center',

@@ -22,7 +22,7 @@ const CheckoutForm = ({ product }) => {
         if (price < 0) {
             return;
         }
-        axios.post('http://localhost:5000/create-payment-intent', { price })
+        axios.post('https://shopcart-server-three.vercel.app/create-payment-intent', { price })
             .then(res => {
                 // console.log(res.data.clientSecret);
                 setClientSecret(res.data.clientSecret);
@@ -91,7 +91,7 @@ const CheckoutForm = ({ product }) => {
                 price,
                 cartItemId: _id
             }
-            axios.post('http://localhost:5000/payment', payment)
+            axios.post('https://shopcart-server-three.vercel.app/payment', payment)
                 .then(res => {
                     console.log(res.data);
                     if (res.data.result.insertedId) {

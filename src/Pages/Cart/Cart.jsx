@@ -17,7 +17,7 @@ const Cart = () => {
     // const { data: products = [], refetch } = useQuery({
     //     queryKey: ['products', user?.email],
     //     queryFn: async () => {
-    //         const res = await axios.get(`http://localhost:5000/addCart?email=${user?.email}`)
+    //         const res = await axios.get(`https://shopcart-server-three.vercel.app/addCart?email=${user?.email}`)
     //         console.log(res.data);
     //         return res.data;
     //     }
@@ -31,7 +31,7 @@ const Cart = () => {
     }
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:5000/addCart/${id}`)
+        axios.delete(`https://shopcart-server-three.vercel.app/addCart/${id}`)
             .then(res => {
                 console.log(res.data)
                 refetch();

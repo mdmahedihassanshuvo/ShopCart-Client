@@ -15,7 +15,7 @@ const Payment = () => {
     const { data: product = [], refetch } = useQuery({
         queryKey: ['product', id],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/addCart/${id}`)
+            const res = await axios.get(`https://shopcart-server-three.vercel.app/addCart/${id}`)
             console.log(res.data);
             return res.data;
         }

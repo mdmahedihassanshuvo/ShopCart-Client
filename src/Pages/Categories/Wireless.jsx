@@ -14,7 +14,7 @@ const Wireless = () => {
         queryKey: ['wirelessHeadphones'],
         // enabled: !loading,
         queryFn: async () => {
-            const res = await axios.get('http://localhost:5000/wireless')
+            const res = await axios.get('https://shopcart-server-three.vercel.app/wireless')
             console.log(res.data)
             return res.data
         }
@@ -49,7 +49,7 @@ const Wireless = () => {
         };
 
         try {
-            const response = await axios.post('http://localhost:5000/addCart', cartItem);
+            const response = await axios.post('https://shopcart-server-three.vercel.app/addCart', cartItem);
             console.log(response.data);
             Swal.fire({
                 position: 'center',
